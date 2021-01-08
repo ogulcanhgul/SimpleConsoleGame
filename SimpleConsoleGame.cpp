@@ -1,14 +1,4 @@
-/****************************************************************************
-**							SAKARYA ÜNİVERSİTESİ
-**			         BİLGİSAYAR VE BİLİŞİM BİLİMLERİ FAKÜLTESİ
-**						 BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ
-**				          PROGRAMLAMAYA GİRİŞİ DERSİ
-**
-**				ÖDEV NUMARASI…...:Proje Ödevi
-**				ÖĞRENCİ ADI...............:Oğulcan Hami Gül
-**				ÖĞRENCİ NUMARASI.:B181210017
-**				DERS GRUBU…………:B
-****************************************************************************/
+
 #include <iostream>
 #include <Windows.h>
 #include <time.h>
@@ -36,15 +26,15 @@ const int zorlukseviyesi = 15;
 
 int i = 0;
 
-//Uçağın hareketi ve başka yerlerde kullanmak için bir veri tipi tasarladık.
+//UÃ§aÄŸÄ±n hareketi ve baÅŸka yerlerde kullanmak iÃ§in bir veri tipi tasarladÄ±k.
 enum Yon
 {
-	Yon_Yukarı=1,
-	Yon_Asagı=2,
+	Yon_YukarÄ±=1,
+	Yon_AsagÄ±=2,
 	Yon_Yok=3,
-	tusabasıldı=4
+	tusabasÄ±ldÄ±=4
 };
-//Mermi ve düşmanın ortak kullanacağı yapıyı tasarladık.
+//Mermi ve dÃ¼ÅŸmanÄ±n ortak kullanacaÄŸÄ± yapÄ±yÄ± tasarladÄ±k.
 struct mermivedusman
 {
 	int x;
@@ -57,7 +47,7 @@ mermivedusman mermi[mermihakki];
 
 mermivedusman dusman[dusmansayisi];
 
-//Uçağımız için bir yapı tasarladık.
+//UÃ§aÄŸÄ±mÄ±z iÃ§in bir yapÄ± tasarladÄ±k.
 struct Ucakhucre
 {
 	int x;
@@ -141,15 +131,15 @@ void mermiat()
 {
 	mermi[mermisayaci].x = Ucak[2].y;
 	mermi[mermisayaci].y = Ucak[2].x + 1;
-	mermi[mermisayaci].yon = tusabasıldı;
+	mermi[mermisayaci].yon = tusabasÄ±ldÄ±;
 }
 
 void mermiyiyerlestir()
 {
-	//Mermi dizisinin tuşa basılıp basılmamasına göre karakter ataması.
+	//Mermi dizisinin tuÅŸa basÄ±lÄ±p basÄ±lmamasÄ±na gÃ¶re karakter atamasÄ±.
 	for (int i = 0; i < mermihakki; i++)
 	{
-		if (mermi[i].yon == tusabasıldı)
+		if (mermi[i].yon == tusabasÄ±ldÄ±)
 		{
 			if (mermi[i].y < 80 && mermi[i].x < 20)
 			{
@@ -161,10 +151,10 @@ void mermiyiyerlestir()
 
 void mermihareket() 
 {
-	//Merminin hareketi için kullandığımız döngü.
+	//Merminin hareketi iÃ§in kullandÄ±ÄŸÄ±mÄ±z dÃ¶ngÃ¼.
 	for (int i = 0; i < mermihakki; i++)
 	{
-		if (mermi[i].yon == tusabasıldı)
+		if (mermi[i].yon == tusabasÄ±ldÄ±)
 		{
 			mermi[i].y++;
 		}
@@ -174,24 +164,24 @@ void mermihareket()
 void klavyeKontrol()
 {
 	klavyeOku(tuslar);
-	//Tuşlara göre uçağın yönünü ayarladık.
+	//TuÅŸlara gÃ¶re uÃ§aÄŸÄ±n yÃ¶nÃ¼nÃ¼ ayarladÄ±k.
 	if (tuslar['W'] != 0)
 	{
-		Ucak[0].yon = Yon_Yukarı;
-		Ucak[1].yon = Yon_Yukarı;
-		Ucak[2].yon = Yon_Yukarı;
-		Ucak[3].yon = Yon_Yukarı;
-		Ucak[4].yon = Yon_Yukarı;
+		Ucak[0].yon = Yon_YukarÄ±;
+		Ucak[1].yon = Yon_YukarÄ±;
+		Ucak[2].yon = Yon_YukarÄ±;
+		Ucak[3].yon = Yon_YukarÄ±;
+		Ucak[4].yon = Yon_YukarÄ±;
 	}
 	if (tuslar['S'] != 0)
 	{
-		Ucak[0].yon = Yon_Asagı;
-		Ucak[1].yon = Yon_Asagı;
-		Ucak[2].yon = Yon_Asagı;
-		Ucak[3].yon = Yon_Asagı;
-		Ucak[4].yon = Yon_Asagı;
+		Ucak[0].yon = Yon_AsagÄ±;
+		Ucak[1].yon = Yon_AsagÄ±;
+		Ucak[2].yon = Yon_AsagÄ±;
+		Ucak[3].yon = Yon_AsagÄ±;
+		Ucak[4].yon = Yon_AsagÄ±;
 	}
-	//space e basılırsa mermiat() fonksiyonunu çağırdık.
+	//space e basÄ±lÄ±rsa mermiat() fonksiyonunu Ã§aÄŸÄ±rdÄ±k.
 	if (tuslar[32] != 0)
 	{
 		mermiat();
@@ -225,7 +215,7 @@ void Ucakolustur()
 
 void Ucagisahneyeyerlestir() 
 {
-	//Uçağı sahnede uygun bir yere yerleştiriyoruz.
+	//UÃ§aÄŸÄ± sahnede uygun bir yere yerleÅŸtiriyoruz.
 	for (int i = 0; i < ucakkaraktersayisi; i++)
 	{
 		int x = Ucak[i].x;
@@ -234,20 +224,20 @@ void Ucagisahneyeyerlestir()
 	}
 }
 
-void Ucagıhareketettir() 
+void UcagÄ±hareketettir() 
 {
 	for (int i = 0; i < ucakkaraktersayisi; i++) 
 	{
-		//Uçağın yönüne göre hangi değerinin artıp azalacağına karar verilen kısım.
+		//UÃ§aÄŸÄ±n yÃ¶nÃ¼ne gÃ¶re hangi deÄŸerinin artÄ±p azalacaÄŸÄ±na karar verilen kÄ±sÄ±m.
 		switch (Ucak[i].yon)
 		{
-		case Yon_Yukarı:
+		case Yon_YukarÄ±:
 			if (Ucak[0].y != 1)
 			{
 				Ucak[i].y--;
 			}
 			break;
-		case Yon_Asagı:
+		case Yon_AsagÄ±:
 			if (Ucak[4].y != 18)
 			{
 				Ucak[i].y++;
@@ -271,7 +261,7 @@ void Ucagıhareketettir()
 
 void dusmanolustur() 
 {
-	//Dusmanın rastgele çıkması için rand() kullandık.
+	//DusmanÄ±n rastgele Ã§Ä±kmasÄ± iÃ§in rand() kullandÄ±k.
 	int y = rand() % 17;
 	while (y == 0) 
 	{
@@ -283,39 +273,39 @@ void dusmanolustur()
 	{
 		dusman[dusmansayaci].x = genislik - 4;
 		dusman[dusmansayaci].y = y;
-		dusman[dusmansayaci].yon = tusabasıldı;
+		dusman[dusmansayaci].yon = tusabasÄ±ldÄ±;
 		dusman[dusmansayaci].dusmanaynimi =i ;
 		dusman[dusmansayaci + 1].x = genislik - 3;
 		dusman[dusmansayaci + 1].y = y;
-		dusman[dusmansayaci + 1].yon = tusabasıldı;
+		dusman[dusmansayaci + 1].yon = tusabasÄ±ldÄ±;
 		dusman[dusmansayaci + 1].dusmanaynimi = i;
 		dusman[dusmansayaci + 2].x = genislik - 2;
 		dusman[dusmansayaci + 2].y = y;
-		dusman[dusmansayaci + 2].yon = tusabasıldı;
+		dusman[dusmansayaci + 2].yon = tusabasÄ±ldÄ±;
 		dusman[dusmansayaci + 2].dusmanaynimi=i;
 		dusman[dusmansayaci + 3].x = genislik - 4;
 		dusman[dusmansayaci + 3].y = y + 1;
-		dusman[dusmansayaci + 3].yon = tusabasıldı;
+		dusman[dusmansayaci + 3].yon = tusabasÄ±ldÄ±;
 		dusman[dusmansayaci + 3].dusmanaynimi=i;
 		dusman[dusmansayaci + 4].x = genislik - 3;
 		dusman[dusmansayaci + 4].y = y + 1;
-		dusman[dusmansayaci + 4].yon = tusabasıldı;
+		dusman[dusmansayaci + 4].yon = tusabasÄ±ldÄ±;
 		dusman[dusmansayaci + 4].dusmanaynimi=i;
 		dusman[dusmansayaci + 5].x = genislik - 2;
 		dusman[dusmansayaci + 5].y = y + 1;
-		dusman[dusmansayaci + 5].yon = tusabasıldı;
+		dusman[dusmansayaci + 5].yon = tusabasÄ±ldÄ±;
 		dusman[dusmansayaci + 5].dusmanaynimi=i;
 		dusman[dusmansayaci + 6].x = genislik - 4;
 		dusman[dusmansayaci + 6].y = y + 2;
-		dusman[dusmansayaci + 6].yon = tusabasıldı;
+		dusman[dusmansayaci + 6].yon = tusabasÄ±ldÄ±;
 		dusman[dusmansayaci + 6].dusmanaynimi=i;
 		dusman[dusmansayaci + 7].x = genislik - 3;
 		dusman[dusmansayaci + 7].y = y + 2;
-		dusman[dusmansayaci + 7].yon = tusabasıldı;
+		dusman[dusmansayaci + 7].yon = tusabasÄ±ldÄ±;
 		dusman[dusmansayaci + 7].dusmanaynimi=i;
 		dusman[dusmansayaci + 8].x = genislik - 2;
 		dusman[dusmansayaci + 8].y = y + 2;
-		dusman[dusmansayaci + 8].yon = tusabasıldı;
+		dusman[dusmansayaci + 8].yon = tusabasÄ±ldÄ±;
 		dusman[dusmansayaci + 8].dusmanaynimi=i;
 		i++;
 
@@ -324,17 +314,17 @@ void dusmanolustur()
 
 void dusmanyoket()
 {
-	//Merminin bir ilerisinde  düşman var mı diye kontrol ediyoruz.
+	//Merminin bir ilerisinde  dÃ¼ÅŸman var mÄ± diye kontrol ediyoruz.
 	for (int i = 0; i < mermisayaci; i++) 
 	{
 		if (sahne[mermi[i].y + 1][mermi[i].x] == 14)
 		{
-			//Merminin bir ilerisinde ki düşmanın düşman dizisinin kaçıncı elemanı olduğunu buluyoruz.
+			//Merminin bir ilerisinde ki dÃ¼ÅŸmanÄ±n dÃ¼ÅŸman dizisinin kaÃ§Ä±ncÄ± elemanÄ± olduÄŸunu buluyoruz.
 			for (int j = 0; j < dusmansayisi; j++) 
 			{
 				if (dusman[j].x == mermi[i].y + 1 && dusman[j].y == mermi[i].x) 
 				{
-					//Düşman dizisinin merminin çarptığı elemanının yanındaki elemanların yönünü değiştiriyoruz çünkü sahneye yerleştirme işlemini tusabasıldı yönüne göre ayarladık.
+					//DÃ¼ÅŸman dizisinin merminin Ã§arptÄ±ÄŸÄ± elemanÄ±nÄ±n yanÄ±ndaki elemanlarÄ±n yÃ¶nÃ¼nÃ¼ deÄŸiÅŸtiriyoruz Ã§Ã¼nkÃ¼ sahneye yerleÅŸtirme iÅŸlemini tusabasÄ±ldÄ± yÃ¶nÃ¼ne gÃ¶re ayarladÄ±k.
 					for (int l = 0; l < dusmansayisi; l++) 
 					{
 						if (dusman[l].dusmanaynimi == dusman[j].dusmanaynimi)
@@ -353,10 +343,10 @@ void dusmanyoket()
 
 void dusmaniyerlestir() 
 {
-	//Dusmanı sahneye yerleştiriyoruz.
+	//DusmanÄ± sahneye yerleÅŸtiriyoruz.
 	for (int i = 0; i < dusmansayisi; i++)
 	{
-		if (dusman[i].yon == tusabasıldı)
+		if (dusman[i].yon == tusabasÄ±ldÄ±)
 		{
 			if (dusman[i].x > 0)
 			{
@@ -371,10 +361,10 @@ void dusmaniyerlestir()
 
 void dusmanhareket()
 {
-	//Dusmanın x ini arttırarak hareket ettiriyoruz.
+	//DusmanÄ±n x ini arttÄ±rarak hareket ettiriyoruz.
 	for (int i = 0; i < dusmansayisi; i++)
 	{
-		if (dusman[i].yon == tusabasıldı)
+		if (dusman[i].yon == tusabasÄ±ldÄ±)
 		{
 			dusman[i].x--;
 		}
@@ -391,12 +381,12 @@ int main()
 
 	while (true) 
 	{
-		//Sürekli tekrar için fonksiyonlarımızı while(true) döngüsüne sokuyoruz.
+		//SÃ¼rekli tekrar iÃ§in fonksiyonlarÄ±mÄ±zÄ± while(true) dÃ¶ngÃ¼sÃ¼ne sokuyoruz.
 		sahneyiTemizle();
 		sinirlariOlustur();
 		Ucagisahneyeyerlestir();
 		klavyeKontrol();
-		Ucagıhareketettir();
+		UcagÄ±hareketettir();
 		mermiyiyerlestir();
 		mermihareket();
 		dusmanolustur();
